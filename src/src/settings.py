@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'appconfig',
     'user',
     'smoke',
-    'notification'
+    'notification',
+    'django_extensions'
 ]
 
 MIDDLEWARE = [
