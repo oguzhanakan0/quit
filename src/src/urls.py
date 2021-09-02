@@ -22,6 +22,7 @@ import appconfig
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('appconfig/',include('appconfig.urls')),
+    path('user/',include('user.urls'))
 ]
 
 
