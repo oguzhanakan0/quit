@@ -84,8 +84,8 @@ DATABASES = {
         'NAME': 'quitdb',
         'USER': 'postgres',
         'PASSWORD': '2297spky',
-        'HOST': 'localhost',
-        # 'HOST' : '185.184.208.197',
+        'HOST': '147.182.254.201',
+        # 'HOST': 'localhost',
         'PORT': '5432',
     }
 }

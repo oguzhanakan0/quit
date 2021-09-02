@@ -5,7 +5,6 @@ from .models import Version
 
 latest_v=Version.objects.get(is_latest=True)
 
-# Create your views here.
 def version_check(request):
     #request_post = request.POST.dict()
     print(request.body)
