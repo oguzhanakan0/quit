@@ -10,7 +10,8 @@ from django.http import JsonResponse
 from .models import User
 from django.contrib.auth.models import User as DjangoUser
 
-cred = credentials.Certificate("C:\\Users\\mulku\\Desktop\\iquit-507f7-firebase-adminsdk-go447-bc8b2413f2.json")
+# cred = credentials.Certificate("C:\\Users\\mulku\\Desktop\\iquit-507f7-firebase-adminsdk-go447-bc8b2413f2.json")
+cred = credentials.Certificate("/home/iquit-507f7-firebase-adminsdk-go447-bc8b2413f2.json")
 default_app=firebase_admin.initialize_app(cred)
 
 
