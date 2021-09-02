@@ -1,5 +1,5 @@
 import json
-from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
+from django.http import JsonResponse
 # Create your views here.
 from .models import Version
 
