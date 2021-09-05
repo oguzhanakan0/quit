@@ -10,8 +10,8 @@ from django.http import JsonResponse
 from .models import User
 from django.contrib.auth.models import User as DjangoUser
 
-# cred = credentials.Certificate("C:\\Users\\mulku\\Desktop\\iquit-507f7-firebase-adminsdk-go447-bc8b2413f2.json")
-cred = credentials.Certificate("/Users/oguzhanakan/Desktop/iquit-507f7-firebase-adminsdk-go447-bc8b2413f2.json")
+cred = credentials.Certificate("C:\\Users\\mulku\\Desktop\\iquit-507f7-firebase-adminsdk-go447-bc8b2413f2.json")
+#cred = credentials.Certificate("/Users/oguzhanakan/Desktop/iquit-507f7-firebase-adminsdk-go447-bc8b2413f2.json")
 # cred = credentials.Certificate("/home/iquit-507f7-firebase-adminsdk-go447-bc8b2413f2.json")
 default_app=firebase_admin.initialize_app(cred)
 
@@ -28,10 +28,11 @@ def sign_in(request):
     try:
         decoded_token = auth.verify_id_token(id_token)
         #is_info_complete=user.is_info_complete
+        obj, created = User.objects.get_or_create(**d)
+        #burada successi created true/false cevabina baglamak lazim mi
         return JsonResponse(dict(success=True, ))
     except:
         return JsonResponse(dict(success=False))
-    
     
 
 
@@ -45,13 +46,13 @@ def update_user(request):
     
     return JsonResponse(dict(success=True))
 
-def get_or_create(request):
-    d=json.loads(request.body)
-    try:
-        user_temp = User.objects.get(firebase_user_id=d.firebase_user_id)
-        update_user(request)   
-    except User.DoesNotExist:
-        #firebase user yarat, user yarat firebase useri kullan
-        User()
-        user.save()
-    return user
+# def get_or_create(request):
+#     d=json.loads(request.body)
+#     try:
+#         user_temp = User.objects.get(firebase_user_id=d.firebase_user_id)
+#         update_user(request)   
+#     except User.DoesNotExist:
+#         #firebase user yarat, user yarat firebase useri kullan
+#         User()
+#         user.save()
+#     return user
