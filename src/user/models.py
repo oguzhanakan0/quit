@@ -17,6 +17,7 @@ class User(models.Model):
     birth_date         = models.DateField(blank=True, null=True)
     auth_source        = models.IntegerField(choices=AuthSource.choices)
     is_info_complete   = models.BooleanField(default=False)
+    
 
 
 class UserConnection(models.Model):
