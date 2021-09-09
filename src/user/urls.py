@@ -7,4 +7,5 @@ from . import views
 
 urlpatterns=[
     path('sign-in',views.sign_in),
+    path('update',views.update_user),
 ]

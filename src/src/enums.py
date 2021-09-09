@@ -46,11 +46,11 @@ class Intensity(models.IntegerChoices):
         high      = 3
         extreme   = 4
             
-class AuthSource(models.IntegerChoices):
-        google   = 1
-        facebook = 2
-        apple    = 3
-        email    = 4
+class AuthSource(models.TextChoices):
+        google   = 'google.com'
+        facebook = 'facebook.com'
+        apple    = 'apple.com'
+        email    = 'password'
         
 class Relationship(models.IntegerChoices):
         family             = 1
