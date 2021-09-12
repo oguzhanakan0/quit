@@ -8,9 +8,9 @@ from django.forms.models import model_to_dict
 import datetime
 
 
-# cred = credentials.Certificate("C:\\Users\\mulku\\Desktop\\iquit-507f7-firebase-adminsdk-go447-bc8b2413f2.json")
-cred = credentials.Certificate(
-    "/Users/oguzhanakan/Desktop/iquit-507f7-firebase-adminsdk-go447-bc8b2413f2.json")
+cred = credentials.Certificate("C:\\Users\\mulku\\Desktop\\iquit-507f7-firebase-adminsdk-go447-bc8b2413f2.json")
+#cred = credentials.Certificate(
+#    "/Users/oguzhanakan/Desktop/iquit-507f7-firebase-adminsdk-go447-bc8b2413f2.json")
 # cred = credentials.Certificate("/home/iquit-507f7-firebase-adminsdk-go447-bc8b2413f2.json")
 default_app = firebase_admin.initialize_app(cred)
 
@@ -36,6 +36,8 @@ def sign_in(request):
         user.first_joined = datetime.date.today()
         user.save()
     else:
+        user.last_login = datetime.date.today()
+        user.save()
         print(f"not created: {user.email}, {user.uid}, {user.id}")
     return JsonResponse({
         "success": True,
